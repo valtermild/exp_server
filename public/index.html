@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>Список пользователей</title>
+    <title>Поиск</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 </head>
@@ -30,7 +30,7 @@
                 data: {num},
                 success: function (num) {  
                     count = num[0].numberOfttn  
-
+                    
                     $("#result").text(count)   
                 }
             });
