@@ -22,13 +22,14 @@ mongoClient.connect(function(err, client){
 
 
 app.get("/api/nums/", function(req, res){
-    const name = req.query.name;   
+    const num = req.query.num;
+    console.log(num)   
     const collection = req.app.locals.collection;    
     collection.aggregate([
-        { $match: {name}},
+        { $match: {'pnum':num}},
            {
               $project: {
-                 name: 1,
+                 num: 1,
                  numberOfttn: { $cond: { if: { $isArray: "$ttn" }, then: { $size: "$ttn" }, else: "NA"} }
               }
            }
