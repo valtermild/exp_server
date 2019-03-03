@@ -18,6 +18,7 @@
                         <button type="submit" class="btn btn-sm btn-primary">Найти</button>                        
                     </div>
     </form>
+    <div class="result"></div>
   </div>
     <script>     
         function GetUser(num) {
@@ -27,7 +28,7 @@
                 dataType: 'json',
                 data: {num},
                 success: function (num) {        
-                    console.log(num[0].numberOfttn)   
+                    $("result").text(num[0].numberOfttn)   
                 }
             });
         }
