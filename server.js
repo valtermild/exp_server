@@ -22,7 +22,8 @@ mongoClient.connect(function(err, client){
 
 
 app.get("/api/nums/", function(req, res){
-    const num = req.query.num;      
+    const query = req.query.num;
+    const num = query.replace(/[^\d;]/g, '')     
     const collection = req.app.locals.collection;    
     collection.aggregate([
         { $match: {'pnum':num}},
