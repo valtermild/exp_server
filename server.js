@@ -35,7 +35,9 @@ app.get("/api/nums/", function(req, res){
         ] ).toArray(function(err, num){
          
         if(err) return console.log(err);
+        
         res.send(num)
+        
     });
      
 }); 

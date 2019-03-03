@@ -12,7 +12,7 @@
     <form>
             <div class="form-group">
                     <label for="num">PNUM</label>
-                    <input class="form-control" name="num" />
+                    <input class="form-control" name="num" type="number" />
                 </div>
                 <div class="panel-body">
                         <button type="submit" class="btn btn-sm btn-primary">Найти</button>                        
@@ -28,10 +28,13 @@
                 type: "GET",
                 dataType: 'json',
                 data: {num},
-                success: function (num) {  
-                    count = num[0].numberOfttn  
-                    
-                    $("#result").text(count)   
+                success: function (num) {     
+                    if (num.length === 0) {
+                    $("#result").text('Не найдено') 
+                    } else {                        
+                    count = num[0].numberOfttn                 
+                    $("#result").text(count) 
+                    }
                 }
             });
         }
