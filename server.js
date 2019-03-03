@@ -15,7 +15,7 @@ mongoClient.connect(function(err, client){
     if(err) return console.log(err);
     dbClient = client;
     app.locals.collection = client.db("api").collection("nums");
-    app.listen(3000, function(){
+    app.listen(80, function(){
         console.log("Сервер ожидает подключения...");
     });
 });
@@ -32,7 +32,7 @@ app.get("/api/nums/", function(req, res){
                  numberOfttn: { $cond: { if: { $isArray: "$ttn" }, then: { $size: "$ttn" }, else: "NA"} }
               }
            }
-        ] ), (function(err, num){
+        ] ).toArray(function(err, num){
          
         if(err) return console.log(err);
         res.send(num)

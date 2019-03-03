@@ -18,7 +18,8 @@
                         <button type="submit" class="btn btn-sm btn-primary">Найти</button>                        
                     </div>
     </form>
-    <div class="result"></div>
+    <div>Количество элементов:</div>
+    <div id="result" class="alert alert-success" role="alert"></div>
   </div>
     <script>     
         function GetUser(num) {
@@ -27,8 +28,10 @@
                 type: "GET",
                 dataType: 'json',
                 data: {num},
-                success: function (num) {        
-                    $("result").text(num[0].numberOfttn)   
+                success: function (num) {  
+                    count = num[0].numberOfttn  
+
+                    $("#result").text(count)   
                 }
             });
         }
